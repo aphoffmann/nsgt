@@ -76,7 +76,7 @@ except ImportError:
 
 setup(
     name="nsgt",
-    version="0.19",
+    version="0.2",
     author="Thomas Grill",
     author_email="gr@grrrr.org",
     maintainer="Thomas Grill",
