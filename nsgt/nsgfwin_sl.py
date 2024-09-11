@@ -96,8 +96,10 @@ def nsgfwin(f, q, sr, Ls, sliced=True, min_win=4, Qvar=1, dowarn=True, dtype=np.
         for k in range(1,2*lbas+1):
             M[k] = np.round(fbas[k+1]-fbas[k-1])
         M[-1] = np.round(Ls-fbas[-2])
-        
+
+    M = M.astype(float)
     np.clip(M, min_win, np.inf, out=M)
+    M = M.astype(int)
 
 #    print "M",list(M)
     
@@ -181,9 +183,11 @@ def nsgfwin_new(f, q, sr, Ls, sliced=True, min_win=4, Qvar=1, dowarn=True):
         for k in range(1, 2*lbas+1):
             M[k] = np.round(fbas[k+1]-fbas[k-1])
         M[-1] = np.round(Ls-fbas[-2])
-        
-    np.clip(M, min_win, np.inf, out=M)
 
+    M = M.astype(float)
+    np.clip(M, min_win, np.inf, out=M)
+    M = M.astype(int)
+    
     if sliced: 
 ###        g = [blackharr(m) for m in M]
 
